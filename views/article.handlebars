@@ -1,0 +1,19 @@
+<div class="col-11 p-2 my-2 mx-auto">
+  <div class="card border-success">
+    <div class="card-header bg-success text-white">
+      <span class="articleHeader">
+        {{article.title}}</span>
+      <span class="articleMetadata">
+        by
+        {{article.user.name}}
+        on
+        {{format_datetime article.date_created}}</span>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Content: {{article.content}}</li>
+    </ul>
+    <div class="p-2">
+      Comments go here
+    </div>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+<div class="col-11 p-2 mt-2 mx-auto">
+  <form id="editArticleForm">
+    <div class="card border-success">
+      <div class="card-header bg-success text-white">
+        Edit Article
+        <label id="lblArticleID">{{article.id}}</label>
+      </div>
+      <div class="p-2">
+        <label for="txtTitle">Title</label>
+        <input
+          class="form-control"
+          type="text"
+          id="txtTitle"
+          value="{{article.title}}"
+        />
+      </div>
+      <div class="p-2">
+        <label for="txtDateCreated">Date Created</label>
+        <input
+          class="form-control"
+          type="text"
+          id="txtDateCreated"
+          value="{{format_datetime article.date_created}}"
+        />
+      </div>
+      <div class="p-2">
+        <label for="txtContent">Content</label>
+        <textarea class="form-control" id="txtContent" rows="5">{{trim_string
+            article.content
+          }}</textarea>
+      </div>
+      <div class="p-2 mx-auto">
+        <button class="btn btn-success" type="submit">Submit</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<script src="/js/editArticle.js"></script>

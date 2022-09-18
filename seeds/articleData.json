@@ -1,0 +1,38 @@
+[
+  {
+    "title": "Article on Javascript",
+    "content": "This is an awesome article on Javascript."
+  },
+  {
+    "title": "Article on ASP.NET",
+    "content": "This is an awesome article on ASP.NET."
+  },
+  {
+    "title": "Article on SQL",
+    "content": "This is an awesome article on SQL."
+  },
+  {
+    "title": "Article on CSS",
+    "content": "This is an awesome article on CSS."
+  },
+  {
+    "title": "Article on HTML",
+    "content": "This is an awesome article on HTML."
+  },
+  {
+    "title": "Article on C#",
+    "content": "This is an awesome article on C#."
+  },
+  {
+    "title": "Article on MVC",
+    "content": "This is an awesome article on MVC."
+  },
+  {
+    "title": "Article on RAZOR",
+    "content": "This is an awesome article on RAZOR."
+  },
+  {
+    "title": "Article on LINQ",
+    "content": "This is an awesome article on LINQ."
+  }
+]
