@@ -20,7 +20,9 @@ app.set("views", "./views");
 // declare the session variable
 const sess = {
   secret: "Super secret secret",
-  cookie: {},
+  cookie: {
+    maxAge: 24 * 60 * 60 * 1000, // Stored in milliseconds & expires after 1 day
+  },
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({
