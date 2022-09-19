@@ -10,10 +10,26 @@
         {{format_datetime article.date_created}}</span>
     </div>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item">Content: {{article.content}}</li>
+      <li class="list-group-item">{{article.content}}</li>
     </ul>
     <div class="p-2">
-      Comments go here
+      <div class="col-11 p-2 my-2 mx-auto">
+        <div class="card border-success">
+          <div class="card-header bg-success text-white">
+            Comments:
+          </div>
+          <ul class="list-group list-group-flush">
+            {{#each article.comments as |comment|}}
+              <li class="list-group-item">{{comment.user.name}}
+                on
+                {{format_datetime comment.date_created}}
+                <br />
+                {{comment.content}}
+              </li>
+            {{/each}}
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 </div>
