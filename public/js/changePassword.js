@@ -10,6 +10,7 @@ const formHandler = async (event) => {
     .value.trim();
 
   if (newPassword === confirmPassword) {
+    // attempt to change my password if the new and confirmed match
     const response = await fetch(`/api/users/password/`, {
       method: "PUT",
       body: JSON.stringify({ currentPassword, newPassword }),

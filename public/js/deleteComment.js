@@ -2,9 +2,10 @@ const formHandler = async (event) => {
   event.preventDefault();
 
   const commentID = document.querySelector("#lblCommentID").textContent.trim();
-   const articleID = document.querySelector("#hdnArticleID").value.trim();
+  const articleID = document.querySelector("#hdnArticleID").value.trim();
 
   if (commentID && articleID) {
+    // attempt to delete a comment
     const response = await fetch(`/api/comments/${commentID}`, {
       method: "DELETE",
     });

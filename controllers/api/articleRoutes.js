@@ -2,6 +2,8 @@ const router = require("express").Router();
 const { Article, User } = require("../../models");
 const withAuth = require("../../utils/auth");
 
+// This file contains all the database interaction for the Article model
+
 // GET article page
 router.get("/:id", withAuth, async (req, res) => {
   try {
@@ -25,6 +27,7 @@ router.get("/:id", withAuth, async (req, res) => {
   }
 });
 
+// Create a new article
 router.post("/", withAuth, async (req, res) => {
   try {
     const data = await Article.create({
@@ -40,6 +43,7 @@ router.post("/", withAuth, async (req, res) => {
   }
 });
 
+// Update an article
 router.put("/:id", withAuth, async (req, res) => {
   try {
     const data = await Article.update(
@@ -68,6 +72,7 @@ router.put("/:id", withAuth, async (req, res) => {
   }
 });
 
+// Delete an article.  Can only be deleted by the article's owner.
 router.delete("/:id", withAuth, async (req, res) => {
   try {
     const data = await Article.destroy({

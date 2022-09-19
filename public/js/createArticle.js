@@ -5,6 +5,7 @@ const formHandler = async (event) => {
   const content = document.querySelector("#txtContent").value.trim();
 
   if (title && content) {
+    // attempt to create an article
     const response = await fetch(`/api/articles/`, {
       method: "POST",
       body: JSON.stringify({

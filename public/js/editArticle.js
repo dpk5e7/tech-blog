@@ -7,6 +7,7 @@ const formHandler = async (event) => {
   const dateCreated = document.querySelector("#txtDateCreated").value.trim();
 
   if (articleID && title && content && dateCreated) {
+    // attempt to update and article
     const response = await fetch(`/api/articles/${articleID}`, {
       method: "PUT",
       body: JSON.stringify({

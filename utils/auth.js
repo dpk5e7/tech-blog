@@ -1,3 +1,4 @@
+// Middleware for if a user is authenticated
 const withAuth = (req, res, next) => {
   if (req.session.logged_in) {
     next();

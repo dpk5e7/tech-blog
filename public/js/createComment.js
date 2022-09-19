@@ -5,6 +5,7 @@ const formHandler = async (event) => {
   const articleID = document.querySelector("#hdnArticleID").value.trim();
 
   if (content) {
+    // attempt to create a comment
     const response = await fetch(`/api/comments/`, {
       method: "POST",
       body: JSON.stringify({

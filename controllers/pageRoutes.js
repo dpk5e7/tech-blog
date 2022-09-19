@@ -2,6 +2,8 @@ const router = require("express").Router();
 const { Article, User, Comment } = require("../models");
 const withAuth = require("../utils/auth");
 
+// This file contains all the routes for the pages the user will navigate too.
+
 // GET all articles for homepage
 router.get("/", async (req, res) => {
   try {
@@ -217,7 +219,7 @@ router.get("/changePassword/", withAuth, async (req, res) => {
   }
 });
 
-// Login
+// Get the Login page
 router.get("/login", async (req, res) => {
   try {
     if (req.session.logged_in) {
@@ -233,7 +235,7 @@ router.get("/login", async (req, res) => {
   }
 });
 
-// Create Account
+// Get the Create Account page
 router.get("/createAccount", async (req, res) => {
   try {
     if (req.session.logged_in) {

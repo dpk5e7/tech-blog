@@ -17,6 +17,8 @@ The technologies used in this application are:
 - [dotenv](https://www.npmjs.com/package/dotenv) to store environmental variables
 - [express-handlebars](https://www.npmjs.com/package/express-handlebars) as the templating engine
 - [express-session](https://www.npmjs.com/package/express-session) for authentication
+- [connect-session-sequelize](https://www.npmjs.com/package/connect-session-sequelize) for using sequelize for the session store
+- [bcrypt](https://www.npmjs.com/package/bcrypt) for hashing passwords
 
 ### User Story
 

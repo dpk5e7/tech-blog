@@ -17,6 +17,7 @@ app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 app.set("views", "./views");
 
+// declare the session variable
 const sess = {
   secret: "Super secret secret",
   cookie: {},
@@ -31,7 +32,7 @@ app.use(session(sess));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "public"))); // allows access to the css and js files on the client-side
 
 app.use(routes);
 

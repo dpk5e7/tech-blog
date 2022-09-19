@@ -4,6 +4,7 @@ const formHandler = async (event) => {
   const articleID = document.querySelector("#lblArticleID").textContent.trim();
 
   if (articleID) {
+    // attempt to delete an article
     const response = await fetch(`/api/articles/${articleID}`, {
       method: "DELETE",
     });

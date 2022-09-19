@@ -5,6 +5,7 @@ const userData = require("./userData.json");
 const articleData = require("./articleData.json");
 const commentData = require("./commentData.json");
 
+// Function that seeds the database with users, articles, and comments.
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
 

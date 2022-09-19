@@ -2,6 +2,9 @@ const router = require("express").Router();
 const { Comment } = require("../../models");
 const withAuth = require("../../utils/auth");
 
+// This file contains all the database interaction for the Comment model
+
+// Create a new comment associated with an article
 router.post("/", withAuth, async (req, res) => {
   try {
     const data = await Comment.create({
@@ -17,6 +20,7 @@ router.post("/", withAuth, async (req, res) => {
   }
 });
 
+// Delete a comment
 router.delete("/:id", withAuth, async (req, res) => {
   try {
     const data = await Comment.destroy({
