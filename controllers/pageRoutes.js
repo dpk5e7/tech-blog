@@ -11,6 +11,10 @@ router.get("/", async (req, res) => {
           model: User,
         },
       ],
+      order: [
+        ["date_created", "DESC"],
+        ["id", "DESC"],
+      ],
     });
 
     const articles = data.map((article) => article.get({ plain: true }));
@@ -37,6 +41,10 @@ router.get("/dashboard", withAuth, async (req, res) => {
       where: {
         user_id: req.session.user_id,
       },
+      order: [
+        ["date_created", "DESC"],
+        ["id", "DESC"],
+      ],
     });
 
     const articles = data.map((article) => article.get({ plain: true }));
@@ -71,6 +79,10 @@ router.get("/article/:id", async (req, res) => {
           ],
         },
       ],
+      order: [
+        [Comment, "date_created", "DESC"],
+        [Comment, "id", "DESC"],
+      ],
     });
 
     const article = data.get({ plain: true });
@@ -103,6 +115,10 @@ router.get("/editArticle/:id", withAuth, async (req, res) => {
             },
           ],
         },
+      ],
+      order: [
+        [Comment, "date_created", "DESC"],
+        [Comment, "id", "DESC"],
       ],
     });
 
