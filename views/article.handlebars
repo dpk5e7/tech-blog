@@ -27,6 +27,38 @@
                 {{comment.content}}
               </li>
             {{/each}}
+            {{#if logged_in}}
+              <li class="list-group-item">
+                <form id="createCommentForm">
+                  <div class="p-2">
+                    <div class="card border-success">
+                      <div class="card-header bg-success text-white">
+                        Create Comment
+                      </div>
+                      <div class="p-2">
+                        <textarea
+                          class="form-control"
+                          id="txtContent"
+                          rows="2"
+                        ></textarea>
+                      </div>
+                      <div class="p-2 mx-auto">
+                        <input
+                          id="hdnArticleID"
+                          type="hidden"
+                          value="{{article.id}}"
+                        />
+                        <button
+                          class="btn btn-success"
+                          type="submit"
+                        >Submit</button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                <script src="/js/createComment.js"></script>
+              </li>
+            {{/if}}
           </ul>
         </div>
       </div>

@@ -1,39 +1,76 @@
-<div class="col-11 p-2 mt-2 mx-auto">
-  <form id="editArticleForm">
+<div class="vstack gap-2">
+  <div class="col-11 p-2 mt-2 mx-auto">
+    <form id="editArticleForm">
+      <div class="card border-success">
+        <div class="card-header bg-success text-white">
+          Edit Article
+          <label id="lblArticleID">{{article.id}}</label>
+        </div>
+        <div class="p-2">
+          <label for="txtTitle">Title</label>
+          <input
+            class="form-control"
+            type="text"
+            id="txtTitle"
+            value="{{article.title}}"
+          />
+        </div>
+        <div class="p-2">
+          <label for="txtDateCreated">Date Created</label>
+          <input
+            class="form-control"
+            type="text"
+            id="txtDateCreated"
+            value="{{format_datetime article.date_created}}"
+          />
+        </div>
+        <div class="p-2">
+          <label for="txtContent">Content</label>
+          <textarea class="form-control" id="txtContent" rows="5">{{trim_string
+              article.content
+            }}</textarea>
+        </div>
+        <div class="p-2 mx-auto">
+          <button class="btn btn-success" type="submit">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="col-11 p-2 mt-2 mx-auto">
     <div class="card border-success">
       <div class="card-header bg-success text-white">
-        Edit Article
-        <label id="lblArticleID">{{article.id}}</label>
+        Comments
       </div>
-      <div class="p-2">
-        <label for="txtTitle">Title</label>
-        <input
-          class="form-control"
-          type="text"
-          id="txtTitle"
-          value="{{article.title}}"
-        />
-      </div>
-      <div class="p-2">
-        <label for="txtDateCreated">Date Created</label>
-        <input
-          class="form-control"
-          type="text"
-          id="txtDateCreated"
-          value="{{format_datetime article.date_created}}"
-        />
-      </div>
-      <div class="p-2">
-        <label for="txtContent">Content</label>
-        <textarea class="form-control" id="txtContent" rows="5">{{trim_string
-            article.content
-          }}</textarea>
-      </div>
-      <div class="p-2 mx-auto">
-        <button class="btn btn-success" type="submit">Submit</button>
+      <div class="table-responsive">
+        <table class="table bg-light table-striped">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Date Created</th>
+              <th scope="col">Content</th>
+              <th scope="col">Owner</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each article.comments as |comment|}}
+              <tr>
+                <th scope="row">{{comment.id}}</th>
+                <td>{{format_datetime comment.date_created}}</td>
+                <td>{{comment.content}}</td>
+                <td>{{comment.user.name}}</td>
+                <td>
+                  <a
+                    href="/deleteComment/{{comment.id}}"
+                    class="btn btn-danger btn-sm"
+                  >Delete</a></td>
+              </tr>
+            {{/each}}
+          </tbody>
+        </table>
       </div>
     </div>
-  </form>
+  </div>
 </div>
 
 <script src="/js/editArticle.js"></script>

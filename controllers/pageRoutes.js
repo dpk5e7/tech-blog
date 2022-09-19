@@ -51,7 +51,7 @@ router.get("/dashboard", withAuth, async (req, res) => {
   }
 });
 
-// GET the edit article page for the user
+// GET the view article page
 router.get("/article/:id", async (req, res) => {
   try {
     const data = await Article.findByPk(req.params.id, {
@@ -92,6 +92,18 @@ router.get("/editArticle/:id", withAuth, async (req, res) => {
       where: {
         user_id: req.session.user_id,
       },
+      include: [
+        {
+          model: Comment,
+          attributes: ["id", "date_created", "content"],
+          include: [
+            {
+              model: User,
+              attributes: ["name"],
+            },
+          ],
+        },
+      ],
     });
 
     const article = data.get({ plain: true });
@@ -136,6 +148,34 @@ router.get("/deleteArticle/:id", withAuth, async (req, res) => {
 
     res.render("deleteArticle", {
       article,
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+// GET the delete comment page for the user
+router.get("/deleteComment/:id", withAuth, async (req, res) => {
+  try {
+    const data = await Comment.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ["name"],
+        },
+        {
+          model: Article,
+          attributes: ["id", "title"],
+        },
+      ],
+    });
+
+    const comment = data.get({ plain: true });
+
+    res.render("deleteComment", {
+      comment,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
