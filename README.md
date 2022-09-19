@@ -100,7 +100,7 @@ The use of a modern web browser.
 
 ### URL
 
-- [https://dpk5e7.github.io/portfolio/](https://dpk5e7.github.io/portfolio/)
+- [https://dpk5e7-tech-blog.herokuapp.com/](https://dpk5e7-tech-blog.herokuapp.com/)
 
 ### Screenshots
 
